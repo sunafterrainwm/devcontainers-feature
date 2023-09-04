@@ -1,0 +1,47 @@
+{
+    "name": "Node.js (via nvm, including npm, yarn and pnpm)",
+    "id": "nodejs",
+    "version": "1.0.0",
+    "description": "Installs Node.js, nvm, yarn, pnpm, and needed dependencies. Base on devcontainers/features/node:1",
+    "options": {
+        "nodeVersion": {
+            "type": "string",
+            "proposals": [
+                "lts",
+                "latest",
+                "18",
+                "16",
+                "14"
+            ],
+            "default": "lts",
+            "description": "Select or enter a Node.js version to install"
+        },
+        "nodeGypDependencies": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install dependencies to compile native node modules (node-gyp)?"
+        },
+        "nvmInstallPath": {
+            "type": "string",
+            "default": "/usr/local/share/nvm",
+            "description": "The path where NVM will be installed."
+        },
+        "nvmVersion": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "0.39"
+            ],
+            "default": "latest",
+            "description": "Version of NVM to install."
+        },
+        "overrideNpm": {
+            "type": "boolean",
+            "default": false,
+            "description": "Use the npm shim provided by corepack instead of the npm bundled in the preset package. Has no effect on nodejs versions that do not bundle corepack. For issues that may arise after enabling it, see https://nodejs.org/api/corepack.html#how-does-corepack-interact-with-npm"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
